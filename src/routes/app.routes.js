@@ -16,7 +16,6 @@ import ViewOrders from '../pages/App/Views/Orders';
 import ViewServiceOrders from '../pages/App/Views/ServiceOrders';
 
 import RegisterSupplies from '../pages/App/Registers/Supplies';
-import SignOut from '../components/SignOut';
 
 const Drawer = createDrawerNavigator();
 
@@ -52,7 +51,7 @@ const AppRoutes = () => {
           }}
         />
       ) : null}
-      {permissions.filter(p => p.name === 'PESQUISAMETA').length ? (
+      {permissions.filter(p => p.name === 'PESQUISAMETAS').length ? (
         <Drawer.Screen
           name="ViewGoals"
           component={ViewGoals}
@@ -112,7 +111,7 @@ const AppRoutes = () => {
           }}
         />
       ) : null}
-      {permissions.filter(p => p.name === 'MOVIMENTOABASTECIMENTO').length ? (
+      {permissions.filter(p => p.name === 'CADASTROABASTECIMENTO').length ? (
         <Drawer.Screen
           name="RegisterSupplies"
           component={RegisterSupplies}

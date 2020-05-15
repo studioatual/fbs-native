@@ -1,16 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CustomHeader from '~/components/CustomHeader';
 import {Container, Title} from './styles';
 
-const Cashflow = () => {
+const Balances = () => {
+  const [balances, setBalances] = useState([]);
+
+  const getBalance = async () => {
+    try {
+      const response = await api.get('balances');
+      setBalances(response.data);
+    } catch (err) {
+      console.tron.log(err);
+    }
+  };
+
   return (
     <>
       <CustomHeader title="Desesas x Receitas" previous />
       <Container>
-        <Title>Insira Aqui</Title>
+        {balances.map(balance => {
+          return null;
+        })}
       </Container>
     </>
   );
 };
 
-export default Cashflow;
+export default Balances;

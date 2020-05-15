@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import {FontAwesome5} from '@expo/vector-icons';
 
 export const Container = styled.View`
   flex-direction: row;
@@ -40,5 +40,5 @@ export const Up = styled(FontAwesome5).attrs({
   name: 'caret-up',
   size: 20,
 })`
-  color: ${(props) => (props.type ? '#01BD73' : '#aaa')};
+  color: ${props => (props.type ? '#01BD73' : '#aaa')};
 `;
