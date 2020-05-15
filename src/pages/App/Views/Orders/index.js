@@ -1,13 +1,16 @@
 import React from 'react';
-
+import CustomHeader from '~/components/CustomHeader';
 import {Container, Title} from './styles';
 
-const Orders = () => {
+const Goals = () => {
   return (
-    <Container>
-      <Title>Pedidos</Title>
-    </Container>
+    <>
+      <CustomHeader title="Pesquisa de Pedidos" />
+      <Container>
+        <Title>Inserir Aqui</Title>
+      </Container>
+    </>
   );
 };
 
-export default Orders;
+export default Goals;

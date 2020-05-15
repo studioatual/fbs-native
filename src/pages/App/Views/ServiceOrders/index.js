@@ -1,13 +1,16 @@
 import React from 'react';
-
+import CustomHeader from '~/components/CustomHeader';
 import {Container, Title} from './styles';
 
-const ServiceOrders = () => {
+const Goals = () => {
   return (
-    <Container>
-      <Title>Ordem de Serviços</Title>
-    </Container>
+    <>
+      <CustomHeader title="Ordens de Serviços" />
+      <Container>
+        <Title>Inserir Aqui</Title>
+      </Container>
+    </>
   );
 };
 
-export default ServiceOrders;
+export default Goals;

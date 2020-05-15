@@ -4,7 +4,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: greenyellow;
+  background-color: #fff;
 `;
 
 export const Title = styled.Text`

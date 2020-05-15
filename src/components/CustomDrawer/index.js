@@ -9,6 +9,9 @@ import {
   LogoContainer,
   LogoImage,
   LogoText,
+  ItemBtn,
+  ItemIcon,
+  ItemText,
 } from './styles';
 
 const CustomDrawer = ({state, navigation, descriptors}) => {
@@ -26,13 +29,9 @@ const CustomDrawer = ({state, navigation, descriptors}) => {
             const focused = i === state.index;
             const {drawerLabel, drawerIcon} = descriptors[route.key].options;
             return (
-              <TouchableOpacity
+              <ItemBtn
                 key={route.key}
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  padding: 5,
-                }}
+                focus={focused}
                 onPress={() => {
                   navigation.dispatch({
                     ...(focused
@@ -42,17 +41,10 @@ const CustomDrawer = ({state, navigation, descriptors}) => {
                   });
                 }}>
                 {drawerIcon ? (
-                  <Icon
-                    name={drawerIcon}
-                    size={20}
-                    color="#06C"
-                    style={{marginRight: 7}}
-                  />
+                  <ItemIcon name={drawerIcon} focus={focused} />
                 ) : null}
-                <Text style={{fontSize: 16, fontWeight: 'bold'}}>
-                  {drawerLabel}
-                </Text>
-              </TouchableOpacity>
+                <ItemText focus={focused}>{drawerLabel}</ItemText>
+              </ItemBtn>
             );
           })}
         </>

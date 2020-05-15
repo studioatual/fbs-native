@@ -5,108 +5,123 @@ import {useAuth} from '../contexts/auth';
 import CustomDrawer from '../components/CustomDrawer';
 
 import Dashboard from '../pages/App/Dashboard';
+import Profile from '../pages/App/Profile';
 
 import ViewClients from '../pages/App/Views/Clients';
 import ViewGoals from '../pages/App/Views/Goals';
 import ViewProducts from '../pages/App/Views/Products';
-import ViewDirectorPlan from '../pages/App/Views/DirectorPlan';
+import DirectorRoutes from './director.routes';
 import ViewStocks from '../pages/App/Views/Stocks';
 import ViewOrders from '../pages/App/Views/Orders';
 import ViewServiceOrders from '../pages/App/Views/ServiceOrders';
 
 import RegisterSupplies from '../pages/App/Registers/Supplies';
+import SignOut from '../components/SignOut';
 
 const Drawer = createDrawerNavigator();
 
 const AppRoutes = () => {
-  const {logOut, permissions} = useAuth();
-  console.log(permissions.map(p => p.name === 'PESQUISACLIENTE'));
+  const {permissions} = useAuth();
   return (
     <Drawer.Navigator
       initialRouteName="Dashboard"
       drawerContent={props => CustomDrawer(props)}>
       <Drawer.Screen
-        name="Início"
+        name="Dashboard"
         component={Dashboard}
         options={{
-          drawerLabel: 'Dashboard',
-          drawerIcon: 'home',
+          drawerLabel: 'Início',
+          drawerIcon: 'laptop',
         }}
       />
-      {permissions.map(p => p.name === 'PESQUISACLIENTE') ? (
+      <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          drawerLabel: 'Meus Dados',
+          drawerIcon: 'user',
+        }}
+      />
+      {permissions.filter(p => p.name === 'PESQUISACLIENTE').length ? (
         <Drawer.Screen
           name="ViewClients"
           component={ViewClients}
           options={{
             drawerLabel: 'Clientes',
-            drawerIcon: 'home',
+            drawerIcon: 'users',
           }}
         />
       ) : null}
-      <Drawer.Screen
-        name="ViewGoals"
-        component={ViewGoals}
-        options={{
-          drawerLabel: 'Metas',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="ViewProducts"
-        component={ViewProducts}
-        options={{
-          drawerLabel: 'Produtos',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="ViewDirectorPlan"
-        component={ViewDirectorPlan}
-        options={{
-          drawerLabel: 'Plano Diretor',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="ViewStocks"
-        component={ViewStocks}
-        options={{
-          drawerLabel: 'Estoque',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="ViewOrders"
-        component={ViewOrders}
-        options={{
-          drawerLabel: 'Pedidos',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="ViewServiceOrders"
-        component={ViewServiceOrders}
-        options={{
-          drawerLabel: 'Ordem de Serviços',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="RegisterSupplies"
-        component={RegisterSupplies}
-        options={{
-          drawerLabel: 'Abastecimento',
-          drawerIcon: 'home',
-        }}
-      />
-      <Drawer.Screen
-        name="Logout"
-        component={logOut}
-        options={{
-          drawerLabel: 'Sair',
-          drawerIcon: 'sign-out-alt',
-        }}
-      />
+      {permissions.filter(p => p.name === 'PESQUISAMETA').length ? (
+        <Drawer.Screen
+          name="ViewGoals"
+          component={ViewGoals}
+          options={{
+            drawerLabel: 'Metas',
+            drawerIcon: 'chart-line',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'PESQUISAPRODUTO').length ? (
+        <Drawer.Screen
+          name="ViewProducts"
+          component={ViewProducts}
+          options={{
+            drawerLabel: 'Produtos',
+            drawerIcon: 'box-open',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'PESQUISADIRETOR').length ? (
+        <Drawer.Screen
+          name="DirectorRoutes"
+          component={DirectorRoutes}
+          options={{
+            drawerLabel: 'Plano Diretor',
+            drawerIcon: 'chart-pie',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'PESQUISAESTOQUE').length ? (
+        <Drawer.Screen
+          name="ViewStocks"
+          component={ViewStocks}
+          options={{
+            drawerLabel: 'Estoque',
+            drawerIcon: 'boxes',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'PESQUISAPEDIDO').length ? (
+        <Drawer.Screen
+          name="ViewOrders"
+          component={ViewOrders}
+          options={{
+            drawerLabel: 'Pedidos',
+            drawerIcon: 'clipboard-list',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'PESQUISAORDEMSERVICO').length ? (
+        <Drawer.Screen
+          name="ViewServiceOrders"
+          component={ViewServiceOrders}
+          options={{
+            drawerLabel: 'Ordem de Serviços',
+            drawerIcon: 'sort-amount-down',
+          }}
+        />
+      ) : null}
+      {permissions.filter(p => p.name === 'MOVIMENTOABASTECIMENTO').length ? (
+        <Drawer.Screen
+          name="RegisterSupplies"
+          component={RegisterSupplies}
+          options={{
+            drawerLabel: 'Abastecimento',
+            drawerIcon: 'gas-pump',
+          }}
+        />
+      ) : null}
     </Drawer.Navigator>
   );
 };

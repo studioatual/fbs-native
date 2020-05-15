@@ -15,14 +15,17 @@ export const AuthProvider = ({children}) => {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const setCredentials = async data => {
+    console.tron.log(data.user);
     setUser(data.user);
     setCompanies(data.companies);
     setPermissions(data.permissions);
-    await AsyncStorage.setItem('@FbsToApp:token', data.token);
+    await AsyncStorage.setItem('@FbsNative:token', data.token);
   };
 
   const checkCredentials = async () => {
-    const tokenStorage = await AsyncStorage.getItem('@FbsToApp:token');
+    console.tron.log('checkCredentials');
+    const tokenStorage = await AsyncStorage.getItem('@FbsNative:token');
+    console.tron.log('token', tokenStorage);
     if (tokenStorage) {
       try {
         api.defaults.headers.Authorization = `Bearer ${tokenStorage}`;
@@ -42,8 +45,8 @@ export const AuthProvider = ({children}) => {
     try {
       setSubmitting(true);
       const response = await api.post('auth', data);
-      setCredentials(response.data);
       setSubmitting(false);
+      setCredentials(response.data);
     } catch (err) {
       Alert.alert('Erro', err.response.data.error);
       setSubmitting(false);
@@ -68,7 +71,8 @@ export const AuthProvider = ({children}) => {
   };
 
   const logOut = () => {
-    AsyncStorage.removeItem('@FbsToApp:token');
+    console.tron.log('logout');
+    AsyncStorage.removeItem('@FbsNative:token');
     setUser(null);
     return null;
   };
