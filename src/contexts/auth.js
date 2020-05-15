@@ -20,6 +20,7 @@ export const AuthProvider = ({children}) => {
     setCompanies(data.companies);
     setPermissions(data.permissions);
     await AsyncStorage.setItem('@FbsNative:token', data.token);
+    api.defaults.headers.Authorization = `Bearer ${data.token}`;
   };
 
   const checkCredentials = async () => {

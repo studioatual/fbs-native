@@ -1,14 +1,9 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-`;
-
-export const Title = styled.Text`
-  font-size: 30px;
-  font-weight: bold;
-  color: #06c;
+  background-color: #f5f5f5;
+  padding: 10px;
 `;
