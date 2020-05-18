@@ -83,7 +83,7 @@ const Cashflow = () => {
               </Picker>
             </View>
             <HeaderCashflow />
-            <ScrollView style={{width: '100%'}}>
+            <ScrollView style={{width: '90%'}}>
               {cashflow.map((item, index) => {
                 return <ItemCashflow key={index} item={item} />;
               })}
