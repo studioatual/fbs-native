@@ -41,7 +41,7 @@ const CustomDrawer = ({state, navigation, descriptors}) => {
                   });
                 }}>
                 {drawerIcon ? (
-                  <ItemIcon name={drawerIcon} focus={focused} />
+                  <ItemIcon name={drawerIcon} focus={focused} solid />
                 ) : null}
                 <ItemText focus={focused}>{drawerLabel}</ItemText>
               </ItemBtn>

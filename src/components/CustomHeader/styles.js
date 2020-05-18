@@ -10,6 +10,9 @@ export const Container = styled.ImageBackground.attrs({
   flex-direction: column;
   width: 100%;
   padding-bottom: 5px;
+  border-bottom-width: 2px;
+  border-bottom-color: #133569;
+  border-style: solid;
 `;
 
 export const Header = styled.View`

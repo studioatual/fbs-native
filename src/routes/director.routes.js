@@ -1,13 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import DirectorButtons from '~/pages/App/Views/DirectorPlan';
-import Cashflow from '~/pages/App/Views/DirectorPlan/Cashflow';
-import Sales from '~/pages/App/Views/DirectorPlan/Sales';
-import Balances from '~/pages/App/Views/DirectorPlan/Balances';
-import Ranking from '~/pages/App/Views/DirectorPlan/Ranking';
-import Cashiers from '~/pages/App/Views/DirectorPlan/Cashiers';
-import Graphs from '~/pages/App/Views/DirectorPlan/Graphs';
+import DirectorButtons from '~/pages/App/DirectorPlan';
+import Cashflow from '~/pages/App/DirectorPlan/Cashflow';
+import Sales from '~/pages/App/DirectorPlan/Sales';
+import Balances from '~/pages/App/DirectorPlan/Balances';
+import Ranking from '~/pages/App/DirectorPlan/Ranking';
+import Cashiers from '~/pages/App/DirectorPlan/Cashiers';
+import Graphs from '~/pages/App/DirectorPlan/Graphs';
 
 const Stack = createStackNavigator();
 

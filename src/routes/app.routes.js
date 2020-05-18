@@ -1,21 +1,21 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {useAuth} from '../contexts/auth';
-import CustomDrawer from '../components/CustomDrawer';
+import {useAuth} from '~/contexts/auth';
+import CustomDrawer from '~/components/CustomDrawer';
 
-import Dashboard from '../pages/App/Dashboard';
-import Profile from '../pages/App/Profile';
+import Dashboard from '~/pages/App/Dashboard';
+import Profile from '~/pages/App/Profile';
 
-import ViewClients from '../pages/App/Views/Clients';
-import ViewGoals from '../pages/App/Views/Goals';
-import ViewProducts from '../pages/App/Views/Products';
+import ViewClients from '~/pages/App/Clients';
+import ViewGoals from '~/pages/App/Goals';
+import ViewProducts from '~/pages/App/Products';
 import DirectorRoutes from './director.routes';
-import ViewStocks from '../pages/App/Views/Stocks';
-import ViewOrders from '../pages/App/Views/Orders';
-import ViewServiceOrders from '../pages/App/Views/ServiceOrders';
+import ViewStocks from '~/pages/App/Stocks';
+import ViewOrders from '~/pages/App/Orders';
+import ViewServiceOrders from '~/pages/App/ServiceOrders';
 
-import RegisterSupplies from '../pages/App/Registers/Supplies';
+import RegisterSupplies from '~/pages/App/Supplies';
 
 const Drawer = createDrawerNavigator();
 

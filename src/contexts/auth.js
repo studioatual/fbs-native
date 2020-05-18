@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {Alert} from 'react-native';
 import PropTypes from 'prop-types';
 
-import api from '../services/api';
+import api from '~/services/api';
 
 export const AuthContext = createContext({});
 
@@ -15,7 +15,6 @@ export const AuthProvider = ({children}) => {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const setCredentials = async data => {
-    console.tron.log(data.user);
     setUser(data.user);
     setCompanies(data.companies);
     setPermissions(data.permissions);
@@ -24,15 +23,20 @@ export const AuthProvider = ({children}) => {
   };
 
   const checkCredentials = async () => {
-    console.tron.log('checkCredentials');
+    console.tron.log('checando...');
     const tokenStorage = await AsyncStorage.getItem('@FbsNative:token');
-    console.tron.log('token', tokenStorage);
+    console.tron.log('token: ', tokenStorage);
     if (tokenStorage) {
       try {
+        console.tron.log('tentando...');
         api.defaults.headers.Authorization = `Bearer ${tokenStorage}`;
+        console.tron.log('setou');
         const response = await api.get('auth');
+        console.tron.log('respondeu');
+        setLoading(false);
         setCredentials(response.data);
       } catch (err) {
+        console.tron.log('erro');
         if (err.status === 401) {
           setUser(null);
         }
@@ -72,7 +76,6 @@ export const AuthProvider = ({children}) => {
   };
 
   const logOut = () => {
-    console.tron.log('logout');
     AsyncStorage.removeItem('@FbsNative:token');
     setUser(null);
     return null;

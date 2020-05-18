@@ -1,15 +1,9 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
-import {
-  Title,
-  Info,
-  ButtonsContainer,
-  BtGoback,
-  BtGobackText,
-} from './styles';
+import {Title, Info, ButtonsContainer, BtGoback, BtGobackText} from './styles';
 
-import AuthLayout from '../../../components/AuthLayout';
+import AuthLayout from '~/components/AuthLayout';
 
 const Recover = () => {
   const navigation = useNavigation();

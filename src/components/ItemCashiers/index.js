@@ -1,8 +1,10 @@
 import React from 'react';
 import {useAuth} from '~/contexts/auth';
+import {format} from 'date-fns';
 import {
   Container,
-  Title,
+  DateTitle,
+  MethodTitle,
   ValueContainer,
   Value,
   Icons,
@@ -12,16 +14,19 @@ import {
 } from './styles';
 import formatNumber from '~/services/format';
 
-const ItemBalance = ({description, type, total}) => {
+const ItemBalance = ({item}) => {
   const {companies, permissions} = useAuth();
   return (
     <Container>
-      <Title numberOfLines={1}>{description}</Title>
+      <DateTitle numberOfLines={1}>
+        {format(new Date(item.cashier_date), 'dd/MM/yyyy')}
+      </DateTitle>
+      <MethodTitle numberOfLines={1}>{item.method}</MethodTitle>
       <ValueContainer>
-        <Value>R$ {formatNumber(total)}</Value>
+        <Value>R$ {formatNumber(item.vtotal)}</Value>
         <Icons>
-          <Up type={type} />
-          <Down type={type} />
+          <Up type={item.type} />
+          <Down type={item.type} />
         </Icons>
       </ValueContainer>
     </Container>

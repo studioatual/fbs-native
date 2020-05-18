@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {useAuth} from '../contexts/auth';
 
 import AppRoutes from './app.routes';
@@ -9,10 +9,12 @@ const Routes = () => {
   const {loading, signed} = useAuth();
 
   if (loading) {
-    return <View />;
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text>Loading...</Text>
+      </View>
+    );
   }
-
-  console.tron.log('signed', signed);
 
   return signed ? <AppRoutes /> : <AuthRoutes />;
 };

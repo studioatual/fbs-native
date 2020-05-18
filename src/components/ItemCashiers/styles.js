@@ -15,13 +15,22 @@ export const Container = styled.View`
   background: #fff;
 `;
 
-export const Title = styled.Text`
-  width: 65%;
+export const DateTitle = styled.Text`
+  width: 25%;
   font-size: 14px;
   color: #3aa3fd;
+  text-align: left;
+`;
+
+export const MethodTitle = styled.Text`
+  width: 40%;
+  font-size: 14px;
+  color: #3aa3fd;
+  text-align: left;
 `;
 
 export const ValueContainer = styled.View`
+  width: 35%;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
